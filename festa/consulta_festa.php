@@ -23,12 +23,13 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">ID CLIENTE</th>
-      <th scope="col">NOME</th>
+      <th scope="col">ANIVERSARIANTE</th>
       <th scope="col">IDADE</th>
       <th scope="col">Endereco</th>
       <th scope="col">TEMA</th>
-      <th scope="col">CORES</th>
       <th scope="col">DATA DA FESTA</th>
+      <th scope="col">CORES</th>
+    
       <th scope="col">Ações</th>
     </tr>
   </thead>
@@ -44,24 +45,24 @@
 
       while ($dados = mysqli_fetch_assoc($sql)){
         $txtidFesta = $dados['idFesta'];
-        $txtCliente_idCliente = $dados['Cliente_idCliente'];
-        $txtnome= $dados['nome'];
+        $txtCliente_idCliente= $dados['idCliente_fk'];
+        $aniversariante= $dados['aniversariante'];
         $txtidade = $dados['idade'];
         $txtendereco = $dados['endereco'];
         $txttema = $dados['tema'];
-        $txtcores = $dados['cores'];
         $txtdata_festa = $dados['data_festa'];
+        $txtcores = $dados['cores'];
         ?>
        <tr>
            
             <td><?php echo $txtidFesta ?></td>
             <td><?php echo $txtCliente_idCliente ?></td>
-            <td><?php echo $txtnome ?></td>
+            <td><?php echo $aniversariante ?></td>
             <td><?php echo $txtidade ?></td>
             <td><?php echo $txtendereco ?></td>
             <td><?php echo $txttema ?></td>
-            <td><?php echo $txtcores ?></td>
             <td><?php echo $txtdata_festa ?></td>
+            <td><?php echo $txtcores ?></td>
             <td>
 
            <?php echo '<a class="btn btn-danger" href="delete_festa.php?idFesta='.$dados['idFesta'].'">Delete</a> <a class="btn btn-warning" href="editar_festa.php?idFesta='.$dados['idFesta'].'">Edite</a>'; ?>

@@ -58,7 +58,7 @@
             <td><?php echo $cpf ?></td>
             <td>
 
-           <?php echo '<a class="btn btn-danger" href="delete_cliente.php?idCliente='.$dados['idCliente'].'">Delete</a> <a class="btn btn-warning" href="editar.php?idCliente='.$dados['idCliente'].'">Edite</a>'; ?>
+           <?php echo '<a class="btn btn-danger" href="delete_cliente.php?idCliente='.$dados['idCliente'].'">Delete</a> <a class="btn btn-warning" href="editar.php?idCliente='.$dados['idCliente'].'">Edite</a> <a class="btn btn-info" href="../pedidos/consulta_pedidos.php?idCliente='.$dados['idCliente'].'">Pedidos</a> ' ; ?>
 
             </td>
 

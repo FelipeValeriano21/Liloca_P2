@@ -5,11 +5,12 @@ include '../database/conexao.php';
 // get the post records
 $txtid = $_POST['idProduto'];
 $txtnome = $_POST['nome'];
-$txtvalor_unit = $_POST['valor_unit'];
-$txtquantidade = $_POST['quantidade'];
+$txtestoque = $_POST['estoque'];
+$txttipo = $_POST['tipo'];
 $txtmedicao = $_POST['medicao'];
+$txtvalor_unit = $_POST['valor_unit'];
 
-$sql = "CALL Inserir_produto ('$txtid', '$txtnome', '$txtvalor_unit', '$txtquantidade', '$txtmedicao')";
+$sql = "CALL Inserir_produto ('$txtid', '$txtnome', '$txtestoque','$txttipo','$txtmedicao','$txtvalor_unit')";
 if (mysqli_query($conn, $sql)) {
       echo "New record created successfully";
 

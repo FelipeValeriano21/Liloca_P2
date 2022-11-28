@@ -6,14 +6,14 @@ if (isset($_POST['update'])) {
 
   $txtidFesta = $_POST['idFesta'];
 $txtCliente_idCliente = $_POST['Cliente_idCliente'];
-$txtnome= $_POST['nome'];
+$txtaniversariante= $_POST['aniversariante'];
 $txtidade = $_POST['idade'];
 $txtendereco = $_POST['endereco'];
 $txttema = $_POST['tema'];
 $txtcores = $_POST['cores'];
 $txtdata_festa = $_POST['data_festa'];
 
-    $sql = "CALL editar_festa ('$txtidFesta', '$txtCliente_idCliente', '$txtnome', '$txtidade', '$txtendereco', '$txttema','$txtcores','$txtdata_festa')";
+    $sql = "CALL editar_festa ('$txtidFesta', '$txtCliente_idCliente', '$txtaniversariante', '$txtidade', '$txtendereco', '$txttema','$txtcores','$txtdata_festa')";
 
       $result = $conn->query($sql); 
 
@@ -45,8 +45,8 @@ $txtdata_festa = $_POST['data_festa'];
         while ($dados = $result->fetch_assoc()) {
 
           $txtidFesta = $dados['idFesta'];
-        $txtCliente_idCliente = $dados['Cliente_idCliente'];
-        $txtnome= $dados['nome'];
+        $txtCliente_idCliente = $dados['idCliente_fk'];
+        $txtaniversariante= $dados['aniversariante'];
         $txtidade = $dados['idade'];
         $txtendereco = $dados['endereco'];
         $txttema = $dados['tema'];
@@ -110,7 +110,7 @@ $txtdata_festa = $_POST['data_festa'];
         
             <div class="col-md-5">
               <label for="validationCustom03" class="form-label">Nome</label>
-              <input name="nome" id="nome" type="text" class="form-control" id="validationCustom03" value = <?php echo $txtnome; ?> required>
+              <input name="aniversariante" id="aniversariante" type="text" class="form-control" id="validationCustom03" value = "<?php echo $txtaniversariante; ?>" required>
               <div class="invalid-feedback">
                 Please provide a valid city.
               </div>

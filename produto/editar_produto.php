@@ -6,11 +6,12 @@ if (isset($_POST['update'])) {
 
   $txtid = $_POST['idProduto'];
   $txtnome = $_POST['nome'];
-  $txtvalor_unit = $_POST['valor_unit'];
-  $txtquantidade = $_POST['quantidade'];
+  $txtestoque = $_POST['estoque'];
+  $txttipo = $_POST['tipo'];
   $txtmedicao = $_POST['medicao'];
+  $txtvalor_unit = $_POST['valor_unit'];
 
-    $sql = "CALL editar_produto ('$txtid', '$txtnome', '$txtvalor_unit', '$txtquantidade', '$txtmedicao')";
+    $sql = "CALL editar_produto ('$txtid', '$txtnome', '$txtestoque', '$txttipo', '$txtmedicao', '$txtvalor_unit')";
 
       $result = $conn->query($sql); 
 
@@ -40,12 +41,12 @@ if (isset($_POST['update'])) {
     if ($result->num_rows > 0) {        
 
         while ($dados = $result->fetch_assoc()) {
-
           $idProduto = $dados['idProduto'];
           $nome = $dados['nome']; 
+          $estoque = $dados['estoque'];
+          $tipo = $dados['tipo'];
+          $medicao = $dados['medida'];
           $valor_unit = $dados['valor_unit'];
-          $quantidade = $dados['quantidade'];
-          $medicao = $dados['medicao'];
 
         } 
 
@@ -82,9 +83,9 @@ if (isset($_POST['update'])) {
     <div class =  "col-11 m-auto" style = "color:rgb(0, 0, 0)">
 
         <h6 class="text-center" style="font-family:cursive">INFORME OS DADOS DO PRODUTO:        </h6>
-        
+      
     
-          <form class="row g-3 needs-validation" novalidate method="post" action="editar_produto.php">
+        <form class="row g-3 needs-validation" novalidate method="post" action="editar_produto.php">
             <div class="col-md-2">
               <label for="validationCustom01" class="form-label">ID</label>
               <input name="idProduto" id="idProduto" type="number" class="form-control" id="validationCustom01" value="<?php echo $idProduto; ?>" required>
@@ -100,16 +101,18 @@ if (isset($_POST['update'])) {
                 </div>
               </div>
         
-              <div class="col-md-5">
-                <label for="validationCustom01" class="form-label">Valor unitario</label>
-                <input name="valor_unit" id="	valor_unit" type="text" class="form-control" id="validationCustom01" value="<?php echo $valor_unit; ?>" required>
-                <div class="valid-feedback">
-                  Looks good!
-                </div>
-              </div>
+           
             <div class="col-md-5">
-              <label for="validationCustom03" class="form-label">	quantidade</label>
-              <input name="quantidade" id="quantidade" type="number" class="form-control" id="validationCustom03" value = "<?php echo $quantidade; ?>"required>
+              <label for="validationCustom03" class="form-label">	estoque</label>
+              <input name="estoque" id="estoque" type="number" class="form-control" id="validationCustom03" value = "<?php echo $estoque; ?>" required>
+              <div class="invalid-feedback">
+                Please provide a valid city.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <label for="validationCustom03" class="form-label">	Tipo</label>
+              <input name="tipo" id="tipo" type="text" class="form-control" id="validationCustom03" value = "<?php echo $tipo; ?>"  required>
               <div class="invalid-feedback">
                 Please provide a valid city.
               </div>
@@ -123,11 +126,18 @@ if (isset($_POST['update'])) {
                 </div>
               </div>
 
+                 <div class="col-md-5">
+                <label for="validationCustom01" class="form-label">Valor unitario</label>
+                <input name="valor_unit" id="valor_unit" type="text" class="form-control" id="validationCustom01" value="<?php echo $valor_unit; ?>" required>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+              </div>
+
     
             
               <td> <input style="width: 200px; background-color: green; color: white" type="submit" value="Update" name="update">  </td>
             
-    
 </main>
 
 

@@ -23,9 +23,10 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nome</th>
-      <th scope="col">VALOR UNITARIO</th>
-      <th scope="col">QUANTIDADE</th>
+      <th scope="col">ESTOQUE</th>
+      <th scope="col">TIPO</th>
       <th scope="col">MEDICAO</th>
+      <th scope="col">VALOR UNITARIO</th>
       <th scope="col">Ações</th>
     </tr>
   </thead>
@@ -42,17 +43,19 @@
       while ($dados = mysqli_fetch_assoc($sql)){
         $idProduto = $dados['idProduto'];
         $nome = $dados['nome']; 
+        $estoque = $dados['estoque'];
+        $tipo = $dados['tipo'];
+        $medicao = $dados['medida'];
         $valor_unit = $dados['valor_unit'];
-        $quantidade = $dados['quantidade'];
-        $medicao = $dados['medicao'];
         ?>
        <tr>
            
             <td><?php echo $idProduto ?></td>
             <td><?php echo $nome ?></td>
-            <td><?php echo $valor_unit ?></td>
-            <td><?php echo $quantidade ?></td>
+            <td><?php echo $estoque ?></td>
+            <td><?php echo $tipo ?></td>
             <td><?php echo $medicao ?></td>
+            <td><?php echo $valor_unit ?></td>
             <td>
 
            <?php echo '<a class="btn btn-danger" href="delete_produto.php?idProduto='.$dados['idProduto'].'">Delete</a> <a class="btn btn-warning" href="editar_produto.php?idProduto='.$dados['idProduto'].'">Edite</a>'; ?>
@@ -65,7 +68,7 @@
        </tbody>
 </table>
 
-<a href="inserir_cliente.html"><button style="background-color:#228B22; color: white">Adicionar Cliente</button></a> 
+<a href="inserir_produto.html"><button style="background-color:#228B22; color: white">Adicionar Cliente</button></a> 
 
 
 
