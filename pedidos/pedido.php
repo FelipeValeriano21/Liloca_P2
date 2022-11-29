@@ -66,7 +66,7 @@ include '../database/conexao.php';
   <main>
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="liloca.png" alt="" width="350" height="200">
-      <h2>FOLHA DE PEDIDO </h2>
+      <h2 style="font-family: cursive;">FOLHA DE PEDIDO LILOCA </h2>
       <p class="lead">Em baixo encontra-se as informações do pedido</p>
     </div>
 
@@ -79,8 +79,8 @@ include '../database/conexao.php';
       </div>
 
 
-      <div class="col-md-7 col-lg-10 align-items-center" style=" background-image: linear-gradient(to bottom right, #5F4100, #684700); color: white"; >  <br>
-        <h4 class="mb-3 ">DADOS DO PEDIDO ID <?php echo $ped_id ?> </h4>
+      <div class="col-md-7 col-lg-11 align-items-center" style=" background-image: linear-gradient(to bottom right, #5F4100, #684700); color: white"; >  <br>
+        <h4 class="mb-3 " style="background-color: black ;  ">DADOS DO PEDIDO ID <?php echo $ped_id ?> </h4>
         <br>
 
         
@@ -217,7 +217,12 @@ include '../database/conexao.php';
         $idnome = $dados['nome'];
         $valor_unit = $dados['valor_unit'];
         $valor = $dados['valor'];
-     
+        $frete = $dados['frete'];
+        $data_entrega = $dados['data_entrega'];
+        $sinal = $dados['sinal'];
+        $restante = $dados['restante'];
+
+        $total =  $frete + $sinal +  $restante;
         ?>
            
             <td><?php echo $idpedido ?></td>
@@ -229,6 +234,25 @@ include '../database/conexao.php';
       
           </tr> 
        <?php } ?>
+       <tr>
+       <td></td>
+       <td></td>
+       <th scope="col"></th>
+       <th  style="background-color: black;" scope="col">FRETE: R$<?php echo  $frete ?></th> 
+    </tr>
+
+    <tr style="background-color: black;">
+    <th scope="col" style="background-color: black;">DATA DA ENTREGA: <?php echo $data_entrega ?></th> 
+       <td></td>
+       <th scope="col" ></th>
+       <th scope="col" style="background-color: #EF7215; color: black;">TOTAL: R$ <?php echo $total ?></th> 
+    </tr>
+
+    <tr>
+    <th scope="col" style="background-color: black;">SINAL: R$ <?php echo $sinal ?> </th>
+    <th scope="col" style="background-color: black;">RESTANTE: R$ <?php echo $sinal ?> </th>
+       <th scope="col"></th>
+       <th scope="col"></th> 
     </tr>
   </tbody>
 </table>
